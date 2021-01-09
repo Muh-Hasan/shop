@@ -1,10 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HomeScreen from "./screens/HomeScreen";
-import ProductScreen from './screens/ProductScreen'
+import ProductScreen from "./screens/ProductScreen";
 
 function App() {
   return (
@@ -13,8 +13,10 @@ function App() {
         <Header />
         <main className="py-3">
           <Container>
-            <Route path="/" element={<HomeScreen />} />
-            <Route path="/product/:id" element={<ProductScreen />} />
+            <Routes>
+              <Route path="/" element={<HomeScreen />} />
+              <Route path="/product/:id" element={<ProductScreen />} />
+            </Routes>
           </Container>
         </main>
         <Footer />
