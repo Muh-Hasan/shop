@@ -6,9 +6,14 @@
   "author": "Muh-Hasan <muh.hasan.git@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node backend/server"
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "cd frontend && yarn start",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
   }
 }
