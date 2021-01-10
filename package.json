@@ -5,6 +5,9 @@
   "repository": "https://github.com/Muh-Hasan/shop.git",
   "author": "Muh-Hasan <muh.hasan.git@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node backend/server"
+  },
   "dependencies": {
     "express": "^4.17.1"
   }
