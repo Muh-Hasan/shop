@@ -2,6 +2,7 @@
   "name": "shop",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "repository": "https://github.com/Muh-Hasan/shop.git",
   "author": "Muh-Hasan <muh.hasan.git@gmail.com>",
   "license": "MIT",
