@@ -19,7 +19,7 @@ const reviewSchema = mongoose.Schema(
   }
 );
 
-const productrSchema = mongoose.Schema(
+const productSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -35,14 +35,14 @@ const productrSchema = mongoose.Schema(
       required: true,
     },
     brand: {
-      type: Boolean,
+      type: String,
       required: true,
     },
     category: {
       type: String,
       required: true,
     },
-    descriptioin: {
+    description: {
       type: String,
       required: true,
     },
