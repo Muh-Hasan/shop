@@ -8,7 +8,8 @@ export const productSlice = createSlice({
     productList: async (state, action) => {
       try {
         const { data } = await axios.get("/api/products");
-        state = data;
+        console.log(data);
+        state.push(data)
       } catch (error) {
         console.log(error);
       }
