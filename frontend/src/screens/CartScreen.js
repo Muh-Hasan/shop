@@ -12,8 +12,9 @@ import {
 } from "react-bootstrap";
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { addToCart } from "../actions/cartActions";
-
-const CartScreen = () => {
+// import history from "history";
+const CartScreen = (props) => {
+  console.log(props);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -23,6 +24,9 @@ const CartScreen = () => {
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   const { id } = useParams();
   const removeFromCartHandler = () => {};
+  const checkoutHandler = () => {
+    // history.push("/login?redirect=shipping");
+  };
   useEffect(() => {
     if (id) {
       dispatch(addToCart(id, qty));
@@ -81,7 +85,32 @@ const CartScreen = () => {
           </ListGroup>
         )}
       </Col>
-      <Col md={2}></Col>
+      <Col md={4}>
+        <Card>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h2>
+                Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)})
+                items
+              </h2>
+              $
+              {cartItems
+                .reduce((acc, cur) => acc + cur.price * cur.qty, 0)
+                .toFixed(2)}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Button
+                type="button"
+                className="btn-block"
+                disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
+              >
+                Proceed To Checkout
+              </Button>
+            </ListGroup.Item>
+          </ListGroup>
+        </Card>
+      </Col>
       <Col md={2}></Col>
     </Row>
   );
