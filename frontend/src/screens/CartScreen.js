@@ -14,7 +14,7 @@ import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { addToCart } from "../actions/cartActions";
 // import history from "history";
 const CartScreen = (props) => {
-  console.log(props);
+  // console.log(props);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
