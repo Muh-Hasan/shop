@@ -11,10 +11,9 @@ import {
   Card,
 } from "react-bootstrap";
 import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
-import { addToCart } from "../actions/cartActions";
-// import history from "history";
-const CartScreen = (props) => {
-  // console.log(props);
+import { addToCart, removeFromCart } from "../actions/cartActions";
+
+const CartScreen = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -23,9 +22,11 @@ const CartScreen = (props) => {
   const location = useLocation();
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   const { id } = useParams();
-  const removeFromCartHandler = () => {};
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
   const checkoutHandler = () => {
-    // history.push("/login?redirect=shipping");
+    navigate("/login?redirect=shipping");
   };
   useEffect(() => {
     if (id) {
